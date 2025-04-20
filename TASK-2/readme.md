@@ -4,5 +4,6 @@ Here we are using an OAK camera which consists of DEPTH AI API which processes t
 Q-2
 SO here again similar to solving process of  the earlier questions the only thing which has changed is here we just have to publish and subscribe the images jsut like done in the previous task.
 Here i have used cv2waitkey(1) such that data which can be taken form publisher with an interval of 1 millisec such that computer doesnt crash and also i am using CV2 bridge to convert everything from ROS to OpenCV. cv2.destroyAllWindows()` closes the OpenCV tabs when the script is finished.
+The system checks if the key q is pressed if pressed it exits the loop and closes the program.
 
 
