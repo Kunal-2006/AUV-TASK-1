@@ -1,1 +1,24 @@
 
+#!/usr/bin/env python3
+import rospy
+from sensor_msgs.msg import Image
+from cv_bridge import CvBridge
+import cv2
+
+def image_callback(msg):
+    bridge = CvBridge()
+    try:
+        cv_image = bridge.imgmsg_to_cv2(msg, "mono8")
+        cv2.imshow("Edge Subscriber", cv_image)
+        cv2.waitKey(1)
+    except Exception as e:
+        print(e)
+
+def edge_subscriber():
+    rospy.init_node('edge_subscriber', anonymous=True)
+    rospy.Subscriber('edge_feed', Image, image_callback)
+    rospy.spin()
+
+if __name__ == '__main__':
+    edge_subscriber()
+    cv2.destroyAllWindows()
